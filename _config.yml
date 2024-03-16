@@ -1,13 +1,12 @@
-# domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: erisred/my-minima.github.io  # the base hostname and protocol for your site, e.g. http://example.com
-# baseurl: /my-minima/      # place folder name if the site is served in a subfolder
+# domain:       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+# url:          # the base hostname and protocol for your site, e.g. http://example.com
+# baseurl:      # place folder name if the site is served in a subfolder
 
-title: Your awesome title
+title: My minimal minima
 author:
-  name: Erisred
+  name: Author Name
   email: your-email@domain.com
 
-# What is the difference between name and author? !question
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
@@ -48,6 +47,7 @@ url: https://mysite.github.io
 # in order as they should show up.
 header_pages:
   - about.md
+  - posts.md
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
@@ -67,7 +67,7 @@ minima:
   # Minima date format.
   # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  #date_format: "%b-%d-%Y"
+  date_format: "%Y-%m-%d"
 
   # Generate social links in footer.
   #social_links:
