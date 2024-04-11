@@ -1,0 +1,16 @@
+---
+layout: base
+---
+
+<header class="postHeader">
+	<h1>Tag: {{ page.tag }}</h1>
+		{{ content }}
+	<hr>
+</header>
+<ul>
+	{% for post in site.tags[page.tag] %}
+		<li><a href="{{ post.url | prepend:site.baseurl }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+			{{ post.description }}
+		</li>
+	{% endfor %}
+</ul>

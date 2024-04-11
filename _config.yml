@@ -11,9 +11,13 @@ author:
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Write an awesome description for your new site here. You can edit this line
-  in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.
+    Write an awesome description for your new site here.
+  
+# This was the original site description. I shortened it to make the footer smaller.
+#
+# Write an awesome description for your new site here. You can edit this line
+# in _config.yml. It will appear in your document head meta (for Google search
+# results) and in your feed.xml site description.
 
 # Build settings
 
@@ -39,7 +43,7 @@ enable_footer_feed: true
 disqus:
   shortname:
 # Disqus needs this to work. It needs to be `https://mysite.github.io` or whatever the disqus is set to.
-url: https://mysite.github.io
+# url: https://mysite.github.io
 
 # Theme-specific settings
 
@@ -48,6 +52,8 @@ url: https://mysite.github.io
 header_pages:
   - about.md
   - posts.md
+  - tags.html
+  - author.md
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
@@ -70,7 +76,7 @@ minima:
   date_format: "%Y-%m-%d"
 
   # Generate social links in footer.
-  #social_links:
+# social_links:
   #  - { platform: devto,          user_url: "https://dev.to/jekyll" }
   #  - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #  - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
@@ -90,3 +96,6 @@ minima:
 
 # Changes the output directory for the build. Default is _site
 destination: dist
+
+# Add Google analytics - add your analytics code and uncomment
+# google_analytics: UA-XXXXXXXX-X

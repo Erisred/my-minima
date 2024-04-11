@@ -19,3 +19,14 @@ You can find the source code for Jekyll at GitHub:
 
 
 [jekyll-organization]: https://github.com/jekyll
+
+
+
+<ul class="contact-section">
+<li style="font-size: 20px;">Contact</li>
+<li>If you'd like to contact me:</li>
+
+<li>{% if site.author.email -%}
+    <a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.name }}</a>
+{%- endif %}</li>
+</ul>

@@ -1,5 +1,232 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-15T22:28:16-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My minimal minima</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><author><name>Author Name</name><email>your-email@domain.com</email></author><entry><title type="html">What I do to this at start</title><link href="http://localhost:4000/start/2024/02/20/startup.html" rel="alternate" type="text/html" title="What I do to this at start" /><published>2024-02-20T00:00:00-06:00</published><updated>2024-02-20T00:00:00-06:00</updated><id>http://localhost:4000/start/2024/02/20/startup</id><content type="html" xml:base="http://localhost:4000/start/2024/02/20/startup.html"><![CDATA[<h1 id="starting-out-this-fails-at-te-last-step-i-might-need-to-fork-instead--">Starting out (this fails at te last step, I might need to fork instead :( )</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-10T21:25:26-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My minimal minima</title><subtitle>Write an awesome description for your new site here.
+</subtitle><author><name>Author Name</name><email>your-email@domain.com</email></author><entry><title type="html">Adding Google Analytics capaility to your site</title><link href="http://localhost:4000/2024/04/06/google-analytics.html" rel="alternate" type="text/html" title="Adding Google Analytics capaility to your site" /><published>2024-04-06T00:00:00-05:00</published><updated>2024-04-06T00:00:00-05:00</updated><id>http://localhost:4000/2024/04/06/google-analytics</id><content type="html" xml:base="http://localhost:4000/2024/04/06/google-analytics.html"><![CDATA[<p>Adding Google Analytics is pretty easy. All you need is your property code.</p>
+
+<h2 id="the-code">The code</h2>
+<ul>
+  <li>Login to your Google Analytics account.</li>
+  <li>Click <strong>Admin</strong> in the lower left corner.</li>
+  <li>In the property section, click <strong>Data Streams</strong>.</li>
+  <li>Click the relevant data stream.</li>
+  <li>In the Google tag section at the bottom of the Web streams details page, click Configure tag settings.</li>
+  <li>In the <em>Your Google tag</em> section on the Google tag page, copy the ID that starts with “G-“ or “AW-“.</li>
+</ul>
+
+<h2 id="adding-the-code">Adding the code</h2>
+<ul>
+  <li>Look in the <code class="language-plaintext highlighter-rouge">config.yml</code> file for the following:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Add Google analytics - add your analytics code and uncomment
+# google_analytics: UA-XXXXXXXX
+</code></pre></div></div>
+
+<ul>
+  <li>Replace “UA-XXXXXXXX” above with the code you copied from the first step. Be sure to include the “UA-“ or the “G-“.</li>
+  <li>Remove the pound sign “#” from the beginning of that line. Make sure to leave it on the first line.</li>
+  <li>Save and reload the site.</li>
+</ul>
+
+<p>That should be it.</p>
+
+<h3 id="credits">Credits</h3>
+<p>I had some help. I found most of what I needed on these pages:</p>
+
+<ul>
+  <li>Google analytics code instructions taken mostly from <a href="https://support.similarweb.com/hc/en-us/articles/7783050018589-How-to-find-Google-Analytics-Tracking-ID#:~:text=Google%20Analytics%20properties%20have%20a,which%20started%20with%20%22UA%22.">here</a>.</li>
+  <li>Interating to Jekyll Minima was found <a href="https://tamrazyan.com/simple-way-to-integrate-google-analytics-into-jekylls-minima-theme/">here</a>.</li>
+</ul>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="test" /><summary type="html"><![CDATA[Adding Google Analytics is pretty easy. All you need is your property code.]]></summary></entry><entry><title type="html">Adjusting and adding tags to this template site</title><link href="http://localhost:4000/2024/03/29/tags.html" rel="alternate" type="text/html" title="Adjusting and adding tags to this template site" /><published>2024-03-29T00:00:00-05:00</published><updated>2024-03-29T00:00:00-05:00</updated><id>http://localhost:4000/2024/03/29/tags</id><content type="html" xml:base="http://localhost:4000/2024/03/29/tags.html"><![CDATA[<p>The framework for tags has been added to this template site. To learn how they were added to the base Minima setup, see <a href="/2024/03/28/tags-addition.html">this post</a>.</p>
+
+<p>Main steps to adding tags:</p>
+<ul>
+  <li>Add tags to posts</li>
+  <li>Create a tagpage for each new tag used.</li>
+</ul>
+
+<h2 id="adding-tags-to-posts">Adding tags to posts</h2>
+<p>Add tags to posts by including them in the post (or page) frontmatter. One tag can be added using <code class="language-plaintext highlighter-rouge">tag:</code>, or multiple using <code class="language-plaintext highlighter-rouge">tags:</code></p>
+<ul>
+  <li>note that you can use <code class="language-plaintext highlighter-rouge">tags:</code> for one tag as well, so it is acceptable to always use <code class="language-plaintext highlighter-rouge">tags:</code> so nothing ever needs maintenance.</li>
+</ul>
+
+<p>Separate each tag with a single space. It is recommended to use lowercase letters in tag names only, a single word only, or separate words with a hyphen. If a two-word tag is absolutely necessary, be sure to put the tags in quotations.</p>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">tags: single tag new</code> - three tags named, “single” and “tag” and “new”</li>
+  <li><code class="language-plaintext highlighter-rouge">tags: ["single tag", new</code>] - two tags named “single tag” and “new” - note that anything non-standard (single words separated by a single space) needs to be shown as an array: in square brackets, and comma-separated.
+    <ul>
+      <li>note, it is very good practice to always use an array for multiple frontmatter values.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>What a full frontmatter might look like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+title: the very best title ever
+subtitle: An even better byline
+date: 2024-03-29 10:36:45 -0500
+tags: [tag1, tag2, tag3]
+categories: [cat1, cat2, cat3]
+---
+</code></pre></div></div>
+
+<h2 id="create-a-tag-page">Create a “tag page”</h2>
+<p>This page is where the user lands when clicking on a tag. It typically lists all the pages or posts that contain the tag, although it can really be whatever you want.</p>
+
+<p>On this site, there is a layout template called <code class="language-plaintext highlighter-rouge">tagpage</code> that has a layout that does exactly that - lists all pages/posts with the given tag. If a new tag is used, a new tagpage needs to exist for it or the link will go nowhere. To do this, add a file to the root directory, name it <code class="language-plaintext highlighter-rouge">TAG.md</code> (replace TAG with the name of your tag, case sensitive), and add the following content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: tagpage
+title: "Tag page for TAGNAME"
+tag: TAGNAME
+---
+
+These posts are tagged with the {{ page.tag }} tag.
+</code></pre></div></div>
+
+<p>Change TAGNAME in both places to match your tag, case sensitive. Each tag needs its own file, placed in the root folder. Feel free to change the content if desired.</p>
+
+<p>That’s it. Add tags as desired, just don’t forget to add a tag page for any new ones as you go.</p>
+
+<p>Don’t forget that included is a class, <code class="language-plaintext highlighter-rouge">.postTags</code>, that can be styled if you want the tag links to look different than standard links on the site. Also, most of the configuration is customizable, see the post linked at the top of this one for how the config files were added.</p>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="test" /><summary type="html"><![CDATA[The framework for tags has been added to this template site. To learn how they were added to the base Minima setup, see this post.]]></summary></entry><entry><title type="html">Adding tag capability to the base Minima Jekyll template</title><link href="http://localhost:4000/2024/03/28/tags-addition.html" rel="alternate" type="text/html" title="Adding tag capability to the base Minima Jekyll template" /><published>2024-03-28T00:00:00-05:00</published><updated>2024-03-28T00:00:00-05:00</updated><id>http://localhost:4000/2024/03/28/tags-addition</id><content type="html" xml:base="http://localhost:4000/2024/03/28/tags-addition.html"><![CDATA[<p>The base Minima theme does not come with any tagging support, but it’s pretty easy to add. Here is a bare-bones way.</p>
+
+<h2 id="build-the-list-of-tags">Build the list of tags</h2>
+<p>In the background, we need to have the site develop the list of tags, and make them available for use throughout. To do this, add a file to the <code class="language-plaintext highlighter-rouge">includes</code> folder named <code class="language-plaintext highlighter-rouge">collecttags.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign rawtags = "" %}
+{% for post in site.posts %}
+  {% assign ttags = post.tags | join:'|' | append:'|' %}
+  {% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+{% assign site.tags = "" %}
+{% for tag in rawtags %}
+  {% if tag != "" %}
+    {% if tags == "" %}
+      {% assign tags = tag | split:'|' %}
+    {% endif %}
+    {% unless tags contains tag %}
+      {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+</code></pre></div></div>
+
+<p>This creates a list called <code class="language-plaintext highlighter-rouge">site.tags</code>.</p>
+
+<p>Now, we need to execute the building of the list. Since it needs to happen <em>before</em> we can use the list, we need to put it in the <code class="language-plaintext highlighter-rouge">head</code> files. If your template has a file <code class="language-plaintext highlighter-rouge">custom-head.html</code>, put it there. Otherwise, the <code class="language-plaintext highlighter-rouge">head.html</code> file will do.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if site.tags != "" %}
+  {% include collecttags.html %}
+{% endif %}
+</code></pre></div></div>
+
+<h2 id="displaying-tags-on-the-posts">Displaying tags on the posts</h2>
+<p>In the <code class="language-plaintext highlighter-rouge">_includes</code> folder, make a file named <code class="language-plaintext highlighter-rouge">tagline.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span&gt;</span>Tags:
+	{% for tag in page.tags %}
+		{% capture tag_name %}{{ tag }}{% endcapture %}
+	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ site.baseurl }}/{{ tag_name }}"</span><span class="na">class=</span><span class="s">"postTags"</span><span class="nt">&gt;&lt;nobr&gt;</span>
+		{{ tag_name }}<span class="nt">&lt;/nobr&gt;&lt;/a&gt;</span><span class="ni">&amp;nbsp;</span>
+	{% endfor %}
+<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
+
+<p>Note that this also makes each displayed tag into a link, at /tag/tag_name</p>
+
+<p>Also note the use of <code class="language-plaintext highlighter-rouge">site.baseurl</code> here. Most tutorials for tags/categories assume the site is located in the user’s base repository. Mine is not, so I cannot use the simple <code class="language-plaintext highlighter-rouge">site.url</code>. The base url needs to be set up in the <code class="language-plaintext highlighter-rouge">config.yml</code> file. See Jekyll documentation for details.</p>
+
+<p>Put the following in the post template, in the location you wish the tags to be displayed: <code class="language-plaintext highlighter-rouge">{% include tagline.html %}</code>.</p>
+
+<p>Note: the links will be displayed identical to the rest of the links on the site. The class <code class="language-plaintext highlighter-rouge">postTags</code> can be altered to style these links as desired.</p>
+
+<h2 id="make-the-pages-for-tag-posts">Make the pages for tag posts</h2>
+<p>We need to create the pages these tag links point to. A new page needs to be created every time a new tag is used/created. There are scripts that can do this, but require a little more programming skill than this post will cover.</p>
+
+<p>First, create the layout for the page so it can be repeated. In the <code class="language-plaintext highlighter-rouge">layouts</code> folder, create a file called <code class="language-plaintext highlighter-rouge">tagpage.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: default
+---
+
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"postHeader"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h1&gt;</span>Tag: {{ page.tag }}<span class="nt">&lt;/h1&gt;</span>
+  	{{ content }}
+	<span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+	{% for post in site.tags[page.tag] %}
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url | prepend:site.baseurl }}"</span><span class="nt">&gt;</span>{{ post.title }}<span class="nt">&lt;/a&gt;</span>{{ post.date | date_to_string }})<span class="nt">&lt;br&gt;</span>
+			{{ post.description }}
+		<span class="nt">&lt;/li&gt;</span>
+	{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>This layout is now available to use on your tag pages. Each tag needs a place to display its contents. Like so:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: tagpage
+title: "Tag page for TAGNAME"
+tag: TAGNAME
+---
+
+These are posts that are tagged with the **{{ page.tag }}** tag.
+</code></pre></div></div>
+
+<p>Change the TAGNAME in both places to match the new tag. Each tag needs its own file, placed in the project’s root named <code class="language-plaintext highlighter-rouge">tag.html</code>.</p>
+
+<h2 id="creating-one-page-that-lists-all-tags-on-the-site">Creating one page that lists all tags on the site.</h2>
+<p>In the root folder, create a page named <code class="language-plaintext highlighter-rouge">tags.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: page
+title: Site tags
+---
+
+<span class="nt">&lt;h1&gt;</span>Tags used on this site<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;hr/&gt;</span>
+{% for tag in site.tags %}
+	<span class="nt">&lt;h3&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ site.baseurl }}/{{ tag[0] }}"</span><span class="nt">&gt;</span>{{ tag[0] }}<span class="nt">&lt;/a&gt;&lt;/h3&gt;</span>
+	<span class="nt">&lt;ul&gt;</span>
+		{% for post in tag[1] %}
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url | prepend:site.baseurl }}"</span><span class="nt">&gt;</span>{{ post.title }}
+			<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		{% endfor %}
+	<span class="nt">&lt;/ul&gt;</span>
+{% endfor %}
+</code></pre></div></div>
+
+<h2 id="create-a-list-of-all-tags-on-the-site">Create a list of all tags on the site</h2>
+<p>Create a list of tags used on the site (without the list of associated posts). Each tag will link to its tag page.</p>
+
+<p>Add a file to the _includes folder called <code class="language-plaintext highlighter-rouge">tagArchive.html</code> with the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h2</span><span class="err">\</span><span class="nt">&gt;</span>Archive<span class="nt">&lt;/h2</span><span class="err">\</span><span class="nt">&gt;</span>
+{% capture temptags %}
+	{% for tag in site.tags %}
+		{{ tag\[1\].size | plus: 1000 }}#{{ tag\[0\] }}#{{ tag\[1\].size }}
+	{% endfor %}
+{% endcapture %}
+{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
+{% for temptag in sortedtemptags %}
+	{% assign tagitems = temptag | split: '#' %}
+	{% capture tagname %}{{ tagitems\[1\] }}{% endcapture %}
+	<span class="nt">&lt;a</span> <span class="na">href</span><span class="err">\="{{</span> <span class="na">siteurl</span> <span class="err">|</span> <span class="na">prepend:site.baseurl</span> <span class="err">}}/</span><span class="na">tag</span><span class="err">/{{</span> <span class="na">tagname</span> <span class="err">}}"</span> <span class="na">class</span><span class="err">\="</span><span class="na">postTags</span><span class="err">"\</span><span class="nt">&gt;&lt;nobr</span><span class="err">\</span><span class="nt">&gt;</span>{{ tagname }}<span class="nt">&lt;/nobr</span><span class="err">\</span><span class="nt">&gt;&lt;/a</span><span class="err">\</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span>
+{% endfor %}
+</code></pre></div></div>
+
+<p>To put this in a page or post, add <code class="language-plaintext highlighter-rouge">include tagArchive.html</code> where you want it.</p>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="test" /><summary type="html"><![CDATA[The base Minima theme does not come with any tagging support, but it’s pretty easy to add. Here is a bare-bones way.]]></summary></entry><entry><title type="html">What I do to this at start</title><link href="http://localhost:4000/2024/02/20/startup.html" rel="alternate" type="text/html" title="What I do to this at start" /><published>2024-02-20T00:00:00-06:00</published><updated>2024-02-20T00:00:00-06:00</updated><id>http://localhost:4000/2024/02/20/startup</id><content type="html" xml:base="http://localhost:4000/2024/02/20/startup.html"><![CDATA[<p>My purpose:</p>
+
+<p>All of the templates I can find have all kinds of branding and whatnot in them. I want to be able to throw together a site without remembering how I did it.</p>
+
+<p>Perhaps I’ll post it for all someday.</p>
+
+<h2 id="starting-out">Starting out</h2>
 <p>Clone the original to local:</p>
 <ul>
   <li>Navigate to the folder to add the repo to and enter the command line there</li>
@@ -8,11 +235,7 @@
       <li>Mine is <code class="language-plaintext highlighter-rouge">https://github.com/Erisred/my-minima.git</code></li>
     </ul>
   </li>
-  <li>Navigate to the files and delete the <code class="language-plaintext highlighter-rouge">.git</code> file in the root. <code class="language-plaintext highlighter-rouge">minima/.git</code>
-    <ul>
-      <li>If following exactly, just perform <code class="language-plaintext highlighter-rouge">cd minima</code> to enter the new folder.</li>
-    </ul>
-  </li>
+  <li>Navigate to the files and delete the <code class="language-plaintext highlighter-rouge">.git</code> file in the root. <code class="language-plaintext highlighter-rouge">minima/.git</code></li>
   <li>Back to command line - in the newly created project folder - and enter <code class="language-plaintext highlighter-rouge">git init</code> to rebuild the git file.
     <ul>
       <li>If following exactly, just perform <code class="language-plaintext highlighter-rouge">cd minima</code> to enter the new folder.</li>
@@ -31,82 +254,70 @@
       <li><code class="language-plaintext highlighter-rouge">git push origin main</code></li>
     </ul>
   </li>
-  <li>Make the changes as outlined below</li>
+  <li>Make the changes as outlined below, unless it was mine you cloned.</li>
 </ul>
 
-<h1 id="changes-made-to-the-original">Changes made to the original</h1>
-<p>I made changes already to the minimal files. I tried to document them all.</p>
+<h2 id="changes-made-to-the-original">Changes made to the original</h2>
+<p>I made changes to the Minima files for this template. I tried to document them all here, along with some lessons learned. Note that the template in my repo has all these changes already.</p>
 <ul>
-  <li>Downloaded the original from <a href="https://github.com/jekyll/minima/tree/master">minima-master</a>.</li>
-  <li>Added this startup page.</li>
-  <li>Removed the minimal gemspec to make the site a little more independent. Change the following in the Gemfile.
+  <li>Downloaded the original from <a href="https://github.com/jekyll/minima/tree/master">minima-master</a>, and performed the above tasks.</li>
+  <li>Added this startup page to preserve documentation.</li>
+  <li>Removed the minimal gemspec to make the site a little more independent. This invloves changing the following in the Gemfile:
     <ul>
       <li>Comment out the gemspec line to just read <code class="language-plaintext highlighter-rouge">#gemspec</code>.</li>
       <li>Then, add <code class="language-plaintext highlighter-rouge">gem "minima", :github =&gt; 'jekyll/minima'</code>
         <ul>
-          <li>For posterity, the resources I used were <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#remove-the-unnecessary">Remove the unnecessary</a>, an <a href="https://github.com/mmistakes/minimal-mistakes/issues/1407">issue post</a> about removing it that proved it was possible, and finally <a href="https://urishx.github.io/2020/12/16/Customizing-Jekyll's-default-theme.html">this blog post</a> that gave the final clues.</li>
+          <li>For posterity, the resources I used to figure out how to do this were <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#remove-the-unnecessary">Remove the unnecessary</a> and an <a href="https://github.com/mmistakes/minimal-mistakes/issues/1407">issue post</a> about removing it that proved it was possible, and finally <a href="https://urishx.github.io/2020/12/16/Customizing-Jekyll's-default-theme.html">this blog post</a> that gave the final clues.</li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>Changed the links so the color is the same as text, and swapped the underline to be on normally, but disappear when hovering.</li>
-  <li>When serving the site to localhost, if a webrick error presents, run the following on the CLI: <code class="language-plaintext highlighter-rouge">bundle add webrick</code>. This adds the necessary webrick to the gemfile. <strong>Hella important!</strong></li>
-  <li>Added all of the variables I could find to the <code class="language-plaintext highlighter-rouge">custom-variables</code> file. They have been commented out for now. The default variables are controlled via the minima gem, but can be overridden using this file.</li>
+  <li>Changed links to be what I’ve always felt is more ‘normal’ wesite behavior, but to each their own.
+    <ul>
+      <li>Remove brand color and add underline in default text color.</li>
+      <li>Also changed link hover action to remove the underline on hover.</li>
+      <li>Changed the <code class="language-plaintext highlighter-rouge">text-decoration-thickness</code> on the link underlines. It was too thick.</li>
+      <li>This was done in the <code class="language-plaintext highlighter-rouge">base.scss</code> file.</li>
+    </ul>
+  </li>
+  <li>Discovered something about Ruby webricks that I <em>always</em> forget about when making these. Hopefully I’ll check this out next time…
+    <ul>
+      <li>When serving the site to localhost, if a webrick error presents, run the following on the CLI: <code class="language-plaintext highlighter-rouge">bundle add webrick</code>. This adds the necessary webrick to the gemfile. You are welcome :)</li>
+    </ul>
+  </li>
+  <li>Added all of the variables I could find to the <code class="language-plaintext highlighter-rouge">custom-variables</code> file. They have been commented out for now (except the font addition noted below). The default variables are controlled via the minima gem, but can be overridden using this file.</li>
   <li>Hosted on Github for version control.</li>
-</ul>
-
-<h1 id="purpose">Purpose</h1>
-<p>All of the templates I can find have all kinds of branding and whatnot in them. I want to be able to throw together a site without remembering how I did it.
-Perhaps I’ll post it for all someday.</p>
-
-<h1 id="goal">Goal</h1>
-<p>To make a super barebones jekyll template without branding and dependencies that may or may not be around forever. The intent is to have a starting point so that I can make quick websites without remembering how I did it.</p>
-
-<h2 id="started">Started</h2>
-<ul>
-  <li>Check out theming
+  <li>Added and activated the Montserrat font. Because Montserrat.
     <ul>
-      <li>Starting point was finding the variables.</li>
-      <li>The <code class="language-plaintext highlighter-rouge">config.yml</code> file can be amended to use one of five prebuilt themes from minima. This is likely how I will create my own themes.
-        <ul>
-          <li>Change the minima: skin: from classic to what you’d like.</li>
-        </ul>
-      </li>
+      <li>Can unset in the custom-variables.scss file (line 5).</li>
     </ul>
   </li>
-  <li>Make sure the Discus code works, and is easy to toggle.
+  <li>Adjusted padding on footer. Totally a taste thing.</li>
+  <li>Added a contact info section to the About page. The Author name and <code class="language-plaintext highlighter-rouge">mailTo</code> link is pulled from the <code class="language-plaintext highlighter-rouge">config.yml</code> file, and can be changed at will.
     <ul>
-      <li>Closer, per <a href="https://cuda-chen.github.io/blogging/2020/03/28/add-Disqus-to-Jekyll-Minima-theme-simplified.html">this post</a> and bolstered by <a href="https://github.com/jekyll/minima/issues/104">this issue</a>, but I’m still not there. Do I need a DQ account to make it work?</li>
+      <li>I seriously considered removing some stuff from the footer, but left this as a design choice.</li>
+    </ul>
+  </li>
+  <li>Added a skeleton setup to add a favicon. User just needs to add a file named <code class="language-plaintext highlighter-rouge">favicon.ico</code> to the site’s root folder with the image they want.</li>
+  <li>Added tags and wrote a how-to. Both for how I added them to this template and how to maintain or add them as a blogger/user.</li>
+  <li>Learned how to use a relative link for .md files here. Might be of use later on… From <a href="https://talk.jekyllrb.com/t/how-to-link-from-md-page-to-other-page/6067/5">this forum post</a>.
+    <ul>
+      <li>Format: <code class="language-plaintext highlighter-rouge">[link text]({{ site.baseurl }}{% link path/to/post.md %})</code></li>
+      <li>I also seriously considered adding instructions on how to add disqus comments, but there are already plenty of posts about that, and the Minima tamplate already supports it.</li>
+      <li>Lastly - Added a link to the footer to a terms of service page with (for now) some rough concepts for terms and legalese a blogger might want. I may someday refine this page or remove it altogether. I did a little resarch to find the things there, so for now, I’ll leave it.</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="roadmap">Roadmap</h2>
+<h2 id="notes-on-the-minima-theme-styles">Notes on the Minima theme style(s)</h2>
 <ul>
-  <li>Make google analytics work/possible - like most other templates do. They usually just need an include section and an account key entered into the config.yml file.</li>
-  <li>Change all css to variables so theming can be simplified.</li>
-  <li>Seriously consider adding and/or simplifying a dark/light mode theme switcher. I have a dead simple one on another site that should serve as a template.</li>
-  <li><del>Put this on GitHub so I can work on it everywhere.</del></li>
-  <li>Find and remove all the fluff, including the test posts. Leave this one and one more with all the markdowny-things to help with theme styling.</li>
-</ul>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="start" /><summary type="html"><![CDATA[Starting out (this fails at te last step, I might need to fork instead :( ) Clone the original to local: Navigate to the folder to add the repo to and enter the command line there Enter git clone https://github.com/jekyll/minima.git Mine is https://github.com/Erisred/my-minima.git Navigate to the files and delete the .git file in the root. minima/.git If following exactly, just perform cd minima to enter the new folder. Back to command line - in the newly created project folder - and enter git init to rebuild the git file. If following exactly, just perform cd minima to enter the new folder. Push to your repo (already created, of course!) git add . git commit -m "your commit message" git remote add origin &lt;ADDRESS&gt; Address is the url of your repo. As in: https://github.com/GITHUB NAME/GITHUB REPO NAME git push origin main Make the changes as outlined below]]></summary></entry><entry><title type="html">Welcome To Jekyll</title><link href="http://localhost:4000/2016/05/20/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome To Jekyll" /><published>2016-05-20T00:00:00-05:00</published><updated>2016-05-20T00:00:00-05:00</updated><id>http://localhost:4000/2016/05/20/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2016/05/20/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
-
-<p>To add new posts, simply add a file in the <code class="language-plaintext highlighter-rouge">_posts</code> directory that follows the convention <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">My Example Post</title><link href="http://localhost:4000/2016/05/20/my-example-post.html" rel="alternate" type="text/html" title="My Example Post" /><published>2016-05-20T00:00:00-05:00</published><updated>2016-05-20T00:00:00-05:00</updated><id>http://localhost:4000/2016/05/20/my-example-post</id><content type="html" xml:base="http://localhost:4000/2016/05/20/my-example-post.html"><![CDATA[<p>Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id ius, nobis solet detracto quo te.</p>
-
-<p>No laudem altera adolescens has, volumus lucilius eum no. Eam ei nulla audiam efficiantur. Suas affert per no, ei tale nibh sea. Sea ne magna harum, in denique scriptorem sea, cetero alienum tibique ei eos. Labores persequeris referrentur eos ei.</p>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><summary type="html"><![CDATA[Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id ius, nobis solet detracto quo te.]]></summary></entry><entry><title type="html">Some articles are just so long they deserve a really long title to see if things will break well</title><link href="http://localhost:4000/misc/2016/05/20/super-long-article.html" rel="alternate" type="text/html" title="Some articles are just so long they deserve a really long title to see if things will break well" /><published>2016-05-20T00:00:00-05:00</published><updated>2016-05-20T00:00:00-05:00</updated><id>http://localhost:4000/misc/2016/05/20/super-long-article</id><content type="html" xml:base="http://localhost:4000/misc/2016/05/20/super-long-article.html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="misc" /><summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.]]></summary></entry><entry><title type="html">This post demonstrates post content styles</title><link href="http://localhost:4000/start/2016/05/20/this-post-demonstrates-post-content-styles.html" rel="alternate" type="text/html" title="This post demonstrates post content styles" /><published>2016-05-20T00:00:00-05:00</published><updated>2016-05-20T00:00:00-05:00</updated><id>http://localhost:4000/start/2016/05/20/this-post-demonstrates-post-content-styles</id><content type="html" xml:base="http://localhost:4000/start/2016/05/20/this-post-demonstrates-post-content-styles.html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.</p>
+  <li>The <code class="language-plaintext highlighter-rouge">config.yml</code> file can be amended to use one of five prebuilt themes from minima. This would be a great way for a user to add their own themes.
+    <ul>
+      <li>How: Change <code class="language-plaintext highlighter-rouge">minima: skin:</code> from classic to what you’d like. See the lines immediately preceding that one for a list of available themes. The site does need to be rebuilt for changes to take effect (as do any changes in <code class="language-plaintext highlighter-rouge">config.yml</code>).</li>
+    </ul>
+  </li>
+  <li>Note to new users - blockquotes (paragraphs that start with &gt;) are not formatted very well, IMHO. It’s the next thing I would consider changing… but that’s just me.</li>
+</ul>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="test" /><summary type="html"><![CDATA[My purpose:]]></summary></entry><entry><title type="html">This post demonstrates post content styles</title><link href="http://localhost:4000/start/2016/05/20/this-post-demonstrates-post-content-styles.html" rel="alternate" type="text/html" title="This post demonstrates post content styles" /><published>2016-05-20T00:00:00-05:00</published><updated>2016-05-20T00:00:00-05:00</updated><id>http://localhost:4000/start/2016/05/20/this-post-demonstrates-post-content-styles</id><content type="html" xml:base="http://localhost:4000/start/2016/05/20/this-post-demonstrates-post-content-styles.html"><![CDATA[<p>I left this page in the template, since it does a good job of showing most of the typography and styling available on the base theme.</p>
 
 <h2 id="some-great-heading-h2">Some great heading (h2)</h2>
 
@@ -153,6 +364,8 @@ Perhaps I’ll post it for all someday.</p>
   <span class="nl">margin</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<p><strong>Note</strong> - If Jekyll code is inserted in a post/page, it needs to be surrounded by <code class="language-plaintext highlighter-rouge">(% raw %)</code> and <code class="language-plaintext highlighter-rouge">(% endraw %)</code> in Jekyll notation - that is, replace the parentheses with curly braces <code class="language-plaintext highlighter-rouge">{}</code></p>
 
 <p>In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.</p>
 
@@ -278,4 +491,16 @@ Perhaps I’ll post it for all someday.</p>
       <td>lorem ipsum dolor sit amet consectetur</td>
     </tr>
   </tbody>
-</table>]]></content><author><name>[&quot;Bart Simpson&quot;, &quot;Nelson Mandela Muntz&quot;]</name></author><category term="start" /><summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.]]></summary></entry><entry><title type="html">Some articles are just so short that we have to make the footer stick</title><link href="http://localhost:4000/misc/2016/05/19/super-short-article.html" rel="alternate" type="text/html" title="Some articles are just so short that we have to make the footer stick" /><published>2016-05-19T00:00:00-05:00</published><updated>2016-05-19T00:00:00-05:00</updated><id>http://localhost:4000/misc/2016/05/19/super-short-article</id><content type="html" xml:base="http://localhost:4000/misc/2016/05/19/super-short-article.html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="misc" /><summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]]></summary></entry></feed>
+</table>]]></content><author><name>[&quot;Bart Simpson&quot;, &quot;Nelson Mandela Muntz&quot;]</name></author><category term="start" /><category term="test" /><summary type="html"><![CDATA[I left this page in the template, since it does a good job of showing most of the typography and styling available on the base theme.]]></summary></entry><entry><title type="html">Welcome To Jekyll</title><link href="http://localhost:4000/2016/05/20/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome To Jekyll" /><published>2016-05-20T00:00:00-05:00</published><updated>2016-05-20T00:00:00-05:00</updated><id>http://localhost:4000/2016/05/20/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2016/05/20/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>To add new posts, simply add a file in the <code class="language-plaintext highlighter-rouge">_posts</code> directory that follows the convention <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Author Name</name><email>your-email@domain.com</email></author><category term="test" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>

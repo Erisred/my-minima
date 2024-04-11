@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Adding tag capability to the base Minima Jekyll template | My minimal minima</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Adding tag capability to the base Minima Jekyll template" />
+<meta name="author" content="Author Name" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The base Minima theme does not come with any tagging support, but it’s pretty easy to add. Here is a bare-bones way." />
+<meta property="og:description" content="The base Minima theme does not come with any tagging support, but it’s pretty easy to add. Here is a bare-bones way." />
+<link rel="canonical" href="http://localhost:4000/2024/03/28/tags-addition.html" />
+<meta property="og:url" content="http://localhost:4000/2024/03/28/tags-addition.html" />
+<meta property="og:site_name" content="My minimal minima" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-03-28T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Adding tag capability to the base Minima Jekyll template" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Author Name"},"dateModified":"2024-03-28T00:00:00-05:00","datePublished":"2024-03-28T00:00:00-05:00","description":"The base Minima theme does not come with any tagging support, but it’s pretty easy to add. Here is a bare-bones way.","headline":"Adding tag capability to the base Minima Jekyll template","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/03/28/tags-addition.html"},"url":"http://localhost:4000/2024/03/28/tags-addition.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My minimal minima" />
+<!--Uncomment below if a favicon file is included (at root)-->
+<link rel="shortcut icon" type="image/png" href="favicon.ico">
+
+
+  
+
+
+
+
+
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My minimal minima</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/posts/">Posts</a><a class="page-link" href="/tags.html">Tags</a><a class="page-link" href="/author/">Author</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Adding tag capability to the base Minima Jekyll template</h1>
+    <span>Tags:
+	
+		
+	<a href="/test"class="postTags"><nobr>
+		test</nobr></a>&nbsp;
+	
+</span>
+    <p class="post-meta"><time class="dt-published" datetime="2024-03-28T00:00:00-05:00" itemprop="datePublished">
+        2024-03-28
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The base Minima theme does not come with any tagging support, but it’s pretty easy to add. Here is a bare-bones way.</p>
+
+<h2 id="build-the-list-of-tags">Build the list of tags</h2>
+<p>In the background, we need to have the site develop the list of tags, and make them available for use throughout. To do this, add a file to the <code class="language-plaintext highlighter-rouge">includes</code> folder named <code class="language-plaintext highlighter-rouge">collecttags.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign rawtags = "" %}
+{% for post in site.posts %}
+  {% assign ttags = post.tags | join:'|' | append:'|' %}
+  {% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+{% assign site.tags = "" %}
+{% for tag in rawtags %}
+  {% if tag != "" %}
+    {% if tags == "" %}
+      {% assign tags = tag | split:'|' %}
+    {% endif %}
+    {% unless tags contains tag %}
+      {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+</code></pre></div></div>
+
+<p>This creates a list called <code class="language-plaintext highlighter-rouge">site.tags</code>.</p>
+
+<p>Now, we need to execute the building of the list. Since it needs to happen <em>before</em> we can use the list, we need to put it in the <code class="language-plaintext highlighter-rouge">head</code> files. If your template has a file <code class="language-plaintext highlighter-rouge">custom-head.html</code>, put it there. Otherwise, the <code class="language-plaintext highlighter-rouge">head.html</code> file will do.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if site.tags != "" %}
+  {% include collecttags.html %}
+{% endif %}
+</code></pre></div></div>
+
+<h2 id="displaying-tags-on-the-posts">Displaying tags on the posts</h2>
+<p>In the <code class="language-plaintext highlighter-rouge">_includes</code> folder, make a file named <code class="language-plaintext highlighter-rouge">tagline.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span&gt;</span>Tags:
+	{% for tag in page.tags %}
+		{% capture tag_name %}{{ tag }}{% endcapture %}
+	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ site.baseurl }}/{{ tag_name }}"</span><span class="na">class=</span><span class="s">"postTags"</span><span class="nt">&gt;&lt;nobr&gt;</span>
+		{{ tag_name }}<span class="nt">&lt;/nobr&gt;&lt;/a&gt;</span><span class="ni">&amp;nbsp;</span>
+	{% endfor %}
+<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
+
+<p>Note that this also makes each displayed tag into a link, at /tag/tag_name</p>
+
+<p>Also note the use of <code class="language-plaintext highlighter-rouge">site.baseurl</code> here. Most tutorials for tags/categories assume the site is located in the user’s base repository. Mine is not, so I cannot use the simple <code class="language-plaintext highlighter-rouge">site.url</code>. The base url needs to be set up in the <code class="language-plaintext highlighter-rouge">config.yml</code> file. See Jekyll documentation for details.</p>
+
+<p>Put the following in the post template, in the location you wish the tags to be displayed: <code class="language-plaintext highlighter-rouge">{% include tagline.html %}</code>.</p>
+
+<p>Note: the links will be displayed identical to the rest of the links on the site. The class <code class="language-plaintext highlighter-rouge">postTags</code> can be altered to style these links as desired.</p>
+
+<h2 id="make-the-pages-for-tag-posts">Make the pages for tag posts</h2>
+<p>We need to create the pages these tag links point to. A new page needs to be created every time a new tag is used/created. There are scripts that can do this, but require a little more programming skill than this post will cover.</p>
+
+<p>First, create the layout for the page so it can be repeated. In the <code class="language-plaintext highlighter-rouge">layouts</code> folder, create a file called <code class="language-plaintext highlighter-rouge">tagpage.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: default
+---
+
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"postHeader"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h1&gt;</span>Tag: {{ page.tag }}<span class="nt">&lt;/h1&gt;</span>
+  	{{ content }}
+	<span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+	{% for post in site.tags[page.tag] %}
+		<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url | prepend:site.baseurl }}"</span><span class="nt">&gt;</span>{{ post.title }}<span class="nt">&lt;/a&gt;</span>{{ post.date | date_to_string }})<span class="nt">&lt;br&gt;</span>
+			{{ post.description }}
+		<span class="nt">&lt;/li&gt;</span>
+	{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>This layout is now available to use on your tag pages. Each tag needs a place to display its contents. Like so:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: tagpage
+title: "Tag page for TAGNAME"
+tag: TAGNAME
+---
+
+These are posts that are tagged with the **{{ page.tag }}** tag.
+</code></pre></div></div>
+
+<p>Change the TAGNAME in both places to match the new tag. Each tag needs its own file, placed in the project’s root named <code class="language-plaintext highlighter-rouge">tag.html</code>.</p>
+
+<h2 id="creating-one-page-that-lists-all-tags-on-the-site">Creating one page that lists all tags on the site.</h2>
+<p>In the root folder, create a page named <code class="language-plaintext highlighter-rouge">tags.html</code> with the following content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: page
+title: Site tags
+---
+
+<span class="nt">&lt;h1&gt;</span>Tags used on this site<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;hr/&gt;</span>
+{% for tag in site.tags %}
+	<span class="nt">&lt;h3&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ site.baseurl }}/{{ tag[0] }}"</span><span class="nt">&gt;</span>{{ tag[0] }}<span class="nt">&lt;/a&gt;&lt;/h3&gt;</span>
+	<span class="nt">&lt;ul&gt;</span>
+		{% for post in tag[1] %}
+			<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url | prepend:site.baseurl }}"</span><span class="nt">&gt;</span>{{ post.title }}
+			<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+		{% endfor %}
+	<span class="nt">&lt;/ul&gt;</span>
+{% endfor %}
+</code></pre></div></div>
+
+<h2 id="create-a-list-of-all-tags-on-the-site">Create a list of all tags on the site</h2>
+<p>Create a list of tags used on the site (without the list of associated posts). Each tag will link to its tag page.</p>
+
+<p>Add a file to the _includes folder called <code class="language-plaintext highlighter-rouge">tagArchive.html</code> with the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h2</span><span class="err">\</span><span class="nt">&gt;</span>Archive<span class="nt">&lt;/h2</span><span class="err">\</span><span class="nt">&gt;</span>
+{% capture temptags %}
+	{% for tag in site.tags %}
+		{{ tag\[1\].size | plus: 1000 }}#{{ tag\[0\] }}#{{ tag\[1\].size }}
+	{% endfor %}
+{% endcapture %}
+{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
+{% for temptag in sortedtemptags %}
+	{% assign tagitems = temptag | split: '#' %}
+	{% capture tagname %}{{ tagitems\[1\] }}{% endcapture %}
+	<span class="nt">&lt;a</span> <span class="na">href</span><span class="err">\="{{</span> <span class="na">siteurl</span> <span class="err">|</span> <span class="na">prepend:site.baseurl</span> <span class="err">}}/</span><span class="na">tag</span><span class="err">/{{</span> <span class="na">tagname</span> <span class="err">}}"</span> <span class="na">class</span><span class="err">\="</span><span class="na">postTags</span><span class="err">"\</span><span class="nt">&gt;&lt;nobr</span><span class="err">\</span><span class="nt">&gt;</span>{{ tagname }}<span class="nt">&lt;/nobr</span><span class="err">\</span><span class="nt">&gt;&lt;/a</span><span class="err">\</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span>
+{% endfor %}
+</code></pre></div></div>
+
+<p>To put this in a page or post, add <code class="language-plaintext highlighter-rouge">include tagArchive.html</code> where you want it.</p>
+
+  </div><a class="u-url" href="/2024/03/28/tags-addition.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <div class="footer-col-wrapper">
+        <div class="footer-col">
+        
+          <p class="feed-subscribe">
+            <a href="http://localhost:4000/feed.xml">
+              <svg class="svg-icon orange">
+                <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+              </svg><span>Subscribe</span>
+            </a>
+          </p>
+        
+          <ul class="contact-list">
+            <li class="p-name">Author Name</li>
+            <li><a class="u-email" href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+            
+            <li><a href="tos.html" class="tos">Terms</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p>Write an awesome description for your new site here.
+</p>
+        </div>
+      </div>
+
+      <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+  
+    </div>
+  
+  </footer>
+  </body>
+
+</html>

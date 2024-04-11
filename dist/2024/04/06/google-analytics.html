@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Adding Google Analytics capaility to your site | My minimal minima</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Adding Google Analytics capaility to your site" />
+<meta name="author" content="Author Name" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Adding Google Analytics is pretty easy. All you need is your property code." />
+<meta property="og:description" content="Adding Google Analytics is pretty easy. All you need is your property code." />
+<link rel="canonical" href="http://localhost:4000/2024/04/06/google-analytics.html" />
+<meta property="og:url" content="http://localhost:4000/2024/04/06/google-analytics.html" />
+<meta property="og:site_name" content="My minimal minima" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-04-06T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Adding Google Analytics capaility to your site" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Author Name"},"dateModified":"2024-04-06T00:00:00-05:00","datePublished":"2024-04-06T00:00:00-05:00","description":"Adding Google Analytics is pretty easy. All you need is your property code.","headline":"Adding Google Analytics capaility to your site","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/04/06/google-analytics.html"},"url":"http://localhost:4000/2024/04/06/google-analytics.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My minimal minima" />
+<!--Uncomment below if a favicon file is included (at root)-->
+<link rel="shortcut icon" type="image/png" href="favicon.ico">
+
+
+  
+
+
+
+
+
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My minimal minima</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/posts/">Posts</a><a class="page-link" href="/tags.html">Tags</a><a class="page-link" href="/author/">Author</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Adding Google Analytics capaility to your site</h1>
+    <span>Tags:
+	
+		
+	<a href="/test"class="postTags"><nobr>
+		test</nobr></a>&nbsp;
+	
+</span>
+    <p class="post-meta"><time class="dt-published" datetime="2024-04-06T00:00:00-05:00" itemprop="datePublished">
+        2024-04-06
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Adding Google Analytics is pretty easy. All you need is your property code.</p>
+
+<h2 id="the-code">The code</h2>
+<ul>
+  <li>Login to your Google Analytics account.</li>
+  <li>Click <strong>Admin</strong> in the lower left corner.</li>
+  <li>In the property section, click <strong>Data Streams</strong>.</li>
+  <li>Click the relevant data stream.</li>
+  <li>In the Google tag section at the bottom of the Web streams details page, click Configure tag settings.</li>
+  <li>In the <em>Your Google tag</em> section on the Google tag page, copy the ID that starts with “G-“ or “AW-“.</li>
+</ul>
+
+<h2 id="adding-the-code">Adding the code</h2>
+<ul>
+  <li>Look in the <code class="language-plaintext highlighter-rouge">config.yml</code> file for the following:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Add Google analytics - add your analytics code and uncomment
+# google_analytics: UA-XXXXXXXX
+</code></pre></div></div>
+
+<ul>
+  <li>Replace “UA-XXXXXXXX” above with the code you copied from the first step. Be sure to include the “UA-“ or the “G-“.</li>
+  <li>Remove the pound sign “#” from the beginning of that line. Make sure to leave it on the first line.</li>
+  <li>Save and reload the site.</li>
+</ul>
+
+<p>That should be it.</p>
+
+<h3 id="credits">Credits</h3>
+<p>I had some help. I found most of what I needed on these pages:</p>
+
+<ul>
+  <li>Google analytics code instructions taken mostly from <a href="https://support.similarweb.com/hc/en-us/articles/7783050018589-How-to-find-Google-Analytics-Tracking-ID#:~:text=Google%20Analytics%20properties%20have%20a,which%20started%20with%20%22UA%22.">here</a>.</li>
+  <li>Interating to Jekyll Minima was found <a href="https://tamrazyan.com/simple-way-to-integrate-google-analytics-into-jekylls-minima-theme/">here</a>.</li>
+</ul>
+
+  </div><a class="u-url" href="/2024/04/06/google-analytics.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <div class="footer-col-wrapper">
+        <div class="footer-col">
+        
+          <p class="feed-subscribe">
+            <a href="http://localhost:4000/feed.xml">
+              <svg class="svg-icon orange">
+                <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+              </svg><span>Subscribe</span>
+            </a>
+          </p>
+        
+          <ul class="contact-list">
+            <li class="p-name">Author Name</li>
+            <li><a class="u-email" href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+            
+            <li><a href="tos.html" class="tos">Terms</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p>Write an awesome description for your new site here.
+</p>
+        </div>
+      </div>
+
+      <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+  
+    </div>
+  
+  </footer>
+  </body>
+
+</html>

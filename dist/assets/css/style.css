@@ -206,11 +206,18 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
+/* Bring in the montserrat font, because it slays */
+@font-face {
+  font-family: "Montserrat";
+  src: url(assets/fonts/"montserrat-optimized.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 /**
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 16px/1.5 "Montserrat", Montserrat, Verdana, sans-serif;
   color: #111111;
   background-color: #fdfdfd;
   -webkit-text-size-adjust: 100%;
@@ -291,6 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: #111111;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 a:visited {
   color: black;
@@ -465,7 +473,7 @@ table td {
 }
 .site-title:hover {
   text-decoration: underline;
-  font-weight: normal;
+  /*font-weight: normal;*/
 }
 
 .site-nav {
@@ -548,7 +556,7 @@ table td {
  */
 .site-footer {
   border-top: 1px solid #e8e8e8;
-  padding: 30px 0;
+  padding: 15px 0;
 }
 
 .footer-heading {
@@ -748,6 +756,12 @@ table td {
   .one-half {
     width: calc(50% - 30px / 2);
   }
+}
+.contact-section {
+  list-style-type: none;
+  margin-top: 2em;
+  font-size: 90%;
+  float: right;
 }
 
 /*# sourceMappingURL=style.css.map */

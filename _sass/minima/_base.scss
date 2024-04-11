@@ -13,6 +13,14 @@ dl, dd, ol, ul, figure {
 
 }
 
+/* Bring in the montserrat font, because it slays */
+@font-face {
+    font-family: 'Montserrat';
+    src: url(assets/fonts/'montserrat-optimized.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 /**
@@ -114,6 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: $link-base-color;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 
   &:visited {
     color: $link-visited-color;

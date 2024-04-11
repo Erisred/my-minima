@@ -6,9 +6,10 @@ author:
 - Bart Simpson
 - Nelson Mandela Muntz
 meta: "Springfield"
+tags: test
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
+I left this page in the template, since it does a good job of showing most of the typography and styling available on the base theme.
 
 ## Some great heading (h2)
 
@@ -56,6 +57,7 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
 }
 ```
 
+**Note** - If Jekyll code is inserted in a post/page, it needs to be surrounded by `(% raw %)` and `(% endraw %)` in Jekyll notation - that is, replace the parentheses with curly braces `{}`
 
 In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
 
